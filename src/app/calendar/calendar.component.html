@@ -1,0 +1,14 @@
+<div>
+  <!-- Your calendar view here -->
+  <app-appointment *ngFor="let appointment of appointments" [appointment]="appointment" (deleted)="onDeleteAppointment($event)"></app-appointment>
+</div>
+
+<!-- Add Appointment Form -->
+<div>
+  <h2>Add Appointment</h2>
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="title" placeholder="Title">
+    <input type="datetime-local" formControlName="date" placeholder="Date">
+    <button type="submit" [disabled]="appointmentForm.invalid">Add</button>
+  </form>
+</div>
